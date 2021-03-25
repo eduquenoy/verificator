@@ -1,6 +1,6 @@
 # Vérificateur d'URL pour travaux pratiques
 
-## descriprition
+## description
 Cette application a été développée pour vérifier rapidement l'installation d'un CMS Wordpress pendant une séance de travaux pratiques.
  
 ## configuration
@@ -12,10 +12,11 @@ Pour configurer l'application, commencez par renommer ou dupliquer le fichier `a
  
 Deux éléments sont alors compléter :
  - `URLTEST` : c'est l'URL qui accueille les comptes d'étudiants, donc pour l'exemple : 
- 
-    `var URLTEST = "http://monsite.univ-amoi.com";`
+
+    var URLTEST = "http://monsite.univ-amoi.com";
 
 - `DOSSIERTEST` : c'est le dossier (même nom pour tout le monde) qui accueille le CMS à installer, par exemple Joomla :
+
 
     `var DOSSIERTEST = "joomla";`
 
