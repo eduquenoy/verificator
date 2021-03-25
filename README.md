@@ -40,3 +40,9 @@ ainsi que :
     http://monsite.univ-amoi.com/~john010/joomla
     http://monsite.univ-amoi.com/~marth301/joomla
     http://monsite.univ-amoi.com/~ted111/joomla
+
+On peut utiliser une liste qui comporte également le nom et le prénom de l'étudiant. Il suffit d'utiliser la virgule comme séparateur. Par exemple :
+    
+    Wayne, John, john010
+    Kellys, Marthe, marth301
+    Bear, Ted, ted111
