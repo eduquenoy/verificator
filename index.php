@@ -1,7 +1,8 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Validateur</title>
+    <title>Validateur d'URL</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />

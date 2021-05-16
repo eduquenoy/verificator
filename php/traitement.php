@@ -1,8 +1,15 @@
 <?php
-//echo rand(0,9999); //On va générer un nombre aléatoire entre 0 et 9999
+//header('Access-Control-Allow-Origin: *');
 //print_r($_GET);
 $code = $_GET["code"];
-$urltest = $_GET["urltest"];
+$protocole = $_GET["protocole"];
+if($protocole == 0){
+    $protocoleName = "http://";
+}else{
+    $protocoleName = "https://";
+
+}
+$urltest = $protocoleName.$_GET["urltest"];
 $dossiertest = $_GET["dossiertest"];
 $type = $_GET["type"];//Type d'info à renvoyer : 0: répertoire de base, 1:wordpress
 if($type==0){

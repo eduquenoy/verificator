@@ -52,11 +52,18 @@ $('#choixUrl1').click(function() {
 
 var urlTest;
 var dossierTest;
-
+var protocole = PROTOCOLE;
 $('#form-submit').click(function(){//On a cliqué sur le bouton de soumission
     if(choixUrl==1){
-        //Il faut lire le contenu du formulaire de saisie de l'URL
+        //Il faut lire le contenu du formulaire de saisie de l'URLs
+
         urlTest = $('#basic-url').val();
+        var debut = urlTest.substring(0,4);
+        if(debut=== "https"){
+            urlTest = urlTest.substring(9);
+            protocole = _HTTPS_;
+        }
+
     }else{
         urlTest = URLTEST;
     }
@@ -91,12 +98,16 @@ $('#form-submit').click(function(){//On a cliqué sur le bouton de soumission
     }
     //Il faut commencer par vider le tableau
     var i=0;
+    var request="";
     $('#tableau').html("");
     for(i=0;i<tableau.length;i++){
         var chaine = '<tr><td id="ID'+i+'">'+tableau[i]+'</td><td id="base'+i+'"></td><td id="projet'+i+'"></td></tr>';
         $('#tableau').append(chaine);
-        $('#base'+i).load("php/traitement.php?code="+tableau[i]+"&dossiertest="+dossierTest+"&urltest="+urlTest+"&type=0",function(responseTxt, statusTxt, xhr){
-            if(statusTxt == "success"){
+        //request = "php/traitement.php?code="+tableau[i]+"&dossiertest="+dossierTest+"&urltest="+urlTest+"&type=0"+"&protocole="+protocole;
+        //console.log(request);
+        $('#base'+i).load("php/traitement.php?code="+tableau[i]+"&dossiertest="+dossierTest+"&urltest="+urlTest+"&type=0"+"&protocole="+protocole,function(responseTxt, statusTxt, xhr){
+        //$('#base'+i).load("php/traitement.php",function(responseTxt, statusTxt, xhr){
+                if(statusTxt == "success"){
                 console.log(i);
                 if($(this).text() == "existe"){
                     $(this).css("background-color","green");
@@ -104,12 +115,16 @@ $('#form-submit').click(function(){//On a cliqué sur le bouton de soumission
                     $(this).css("background-color","red");
 
                 }
+            }else{
+                alert("error");
             }
             if(statusTxt == "error")
               alert("Error: " + xhr.status + ": " + xhr.statusText);
           });
-        $('#projet'+i).load("php/traitement.php?code="+tableau[i]+"&dossiertest="+dossierTest+"&urltest="+urlTest+"&type=1",function(responseTxt, statusTxt, xhr){
-            if(statusTxt == "success"){
+
+        $('#projet'+i).load("php/traitement.php?code="+tableau[i]+"&dossiertest="+dossierTest+"&urltest="+urlTest+"&type=1"+"&protocole="+protocole,function(responseTxt, statusTxt, xhr){
+        //$('#projet'+i).load("php/traitement.php",function(responseTxt, statusTxt, xhr){
+                if(statusTxt == "success"){
                 console.log(i);
                 if($(this).text() == "existe"){
                     $(this).css("background-color","green");
@@ -117,6 +132,8 @@ $('#form-submit').click(function(){//On a cliqué sur le bouton de soumission
                     $(this).css("background-color","red");
 
                 }
+            }else{
+                alert("error");
             }
             if(statusTxt == "error")
               alert("Error: " + xhr.status + ": " + xhr.statusText);
